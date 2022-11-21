@@ -1,6 +1,6 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
-  let hours = timestamp.getHours();
+  let hours = date.getHours();
   if (hours < 10) {
     hours = `0${minutes}`;
   }
@@ -43,7 +43,7 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}04d@2x.png`
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
@@ -82,7 +82,7 @@ function displayCelsiusTemperature(event) {
 
 let celsiusTemperature = null;
 
-let form = document.querySelector("search-form");
+let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
